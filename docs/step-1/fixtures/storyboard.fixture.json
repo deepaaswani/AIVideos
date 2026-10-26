@@ -1,0 +1,83 @@
+{
+  "contractVersion": "0.1.0",
+  "projectId": "project_planning_demo",
+  "title": "Turn a big task into a clear plan",
+  "language": "en",
+  "targetDurationSeconds": 30,
+  "output": {
+    "format": "vertical_1080p",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "displayName": "Video Studio Demo",
+    "primaryColor": "#7C3AED",
+    "backgroundColor": "#F8FAFC",
+    "textColor": "#111827",
+    "fontKey": "sans-default"
+  },
+  "sourceVersionIds": ["source_project_plan_v1"],
+  "scenes": [
+    {
+      "id": "scene_hook",
+      "template": "title",
+      "narration": "A big task feels clearer when you give it a simple plan.",
+      "onScreenTitle": "Big task? Start with a clear plan.",
+      "visualItems": [],
+      "highlightIndex": null,
+      "estimatedDurationMs": 5000,
+      "sourceRefs": [{ "sourceVersionId": "source_project_plan_v1", "blockId": "block_intro" }],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "id": "scene_result",
+      "template": "process",
+      "narration": "First, name the result. Describe what finished looks like, instead of listing activities.",
+      "onScreenTitle": "1. Name the result",
+      "visualItems": ["Name the result", "Break it into steps", "Choose the next action"],
+      "highlightIndex": 0,
+      "estimatedDurationMs": 6000,
+      "sourceRefs": [{ "sourceVersionId": "source_project_plan_v1", "blockId": "block_result" }],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "id": "scene_steps",
+      "template": "process",
+      "narration": "Next, break the work into small steps. Put them in an order you can follow.",
+      "onScreenTitle": "2. Break it into steps",
+      "visualItems": ["Name the result", "Break it into steps", "Choose the next action"],
+      "highlightIndex": 1,
+      "estimatedDurationMs": 7000,
+      "sourceRefs": [{ "sourceVersionId": "source_project_plan_v1", "blockId": "block_steps" }],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "id": "scene_action",
+      "template": "process",
+      "narration": "Then choose the next action. Make it specific enough to begin without another planning session.",
+      "onScreenTitle": "3. Choose the next action",
+      "visualItems": ["Name the result", "Break it into steps", "Choose the next action"],
+      "highlightIndex": 2,
+      "estimatedDurationMs": 7000,
+      "sourceRefs": [{ "sourceVersionId": "source_project_plan_v1", "blockId": "block_action" }],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "id": "scene_recap",
+      "template": "recap",
+      "narration": "Name the result, break it down, and choose your next action.",
+      "onScreenTitle": "Your next step starts here.",
+      "visualItems": ["Name it", "Break it down", "Take the next action"],
+      "highlightIndex": null,
+      "estimatedDurationMs": 5000,
+      "sourceRefs": [{ "sourceVersionId": "source_project_plan_v1", "blockId": "block_recap" }],
+      "needsReview": false,
+      "reviewNotes": []
+    }
+  ]
+}

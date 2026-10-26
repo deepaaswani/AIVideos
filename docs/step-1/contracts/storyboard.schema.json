@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:video-studio:prototype:storyboard:0.1.0",
+  "title": "Video Studio prototype storyboard",
+  "description": "Planned content for a 30-second prototype. Server-owned metadata is injected by the application. This does not validate final audio timing, source truth, permissions or approval.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contractVersion", "projectId", "title", "language", "targetDurationSeconds", "output", "brand", "sourceVersionIds", "scenes"],
+  "properties": {
+    "contractVersion": { "const": "0.1.0" },
+    "projectId": { "$ref": "#/$defs/id" },
+    "title": { "type": "string", "minLength": 1, "maxLength": 100 },
+    "language": { "const": "en" },
+    "targetDurationSeconds": { "const": 30 },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["format", "width", "height", "fps"],
+      "properties": {
+        "format": { "const": "vertical_1080p" },
+        "width": { "const": 1080 },
+        "height": { "const": 1920 },
+        "fps": { "const": 30 }
+      }
+    },
+    "brand": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["displayName", "primaryColor", "backgroundColor", "textColor", "fontKey"],
+      "properties": {
+        "displayName": { "type": "string", "minLength": 1, "maxLength": 60 },
+        "primaryColor": { "$ref": "#/$defs/color" },
+        "backgroundColor": { "$ref": "#/$defs/color" },
+        "textColor": { "$ref": "#/$defs/color" },
+        "fontKey": { "enum": ["sans-default"] }
+      }
+    },
+    "sourceVersionIds": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 5,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/id" }
+    },
+    "scenes": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 6,
+      "items": { "$ref": "#/$defs/scene" }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9_-]+$"
+    },
+    "color": { "type": "string", "pattern": "^#[A-Fa-f0-9]{6}$" },
+    "sourceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceVersionId", "blockId"],
+      "properties": {
+        "sourceVersionId": { "$ref": "#/$defs/id" },
+        "blockId": { "$ref": "#/$defs/id" }
+      }
+    },
+    "scene": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "template", "narration", "onScreenTitle", "visualItems", "highlightIndex", "estimatedDurationMs", "sourceRefs", "needsReview", "reviewNotes"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "template": { "enum": ["title", "process", "recap"] },
+        "narration": { "type": "string", "minLength": 1, "maxLength": 320 },
+        "onScreenTitle": { "type": "string", "minLength": 1, "maxLength": 54 },
+        "visualItems": {
+          "type": "array",
+          "maxItems": 3,
+          "items": { "type": "string", "minLength": 1, "maxLength": 50 }
+        },
+        "highlightIndex": { "type": ["integer", "null"], "minimum": 0, "maximum": 2 },
+        "estimatedDurationMs": { "type": "integer", "minimum": 1000, "maximum": 12000 },
+        "sourceRefs": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 5,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/sourceRef" }
+        },
+        "needsReview": { "type": "boolean" },
+        "reviewNotes": {
+          "type": "array",
+          "maxItems": 5,
+          "items": { "type": "string", "minLength": 1, "maxLength": 240 }
+        }
+      }
+    }
+  }
+}

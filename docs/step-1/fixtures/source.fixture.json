@@ -1,0 +1,28 @@
+{
+  "sourceVersionId": "source_project_plan_v1",
+  "title": "Turn a big task into a clear plan",
+  "provenance": "Original text authored for this prototype. Demonstration method, not externally researched advice or a claim of universal effectiveness.",
+  "language": "en",
+  "blocks": [
+    {
+      "id": "block_intro",
+      "text": "A simple plan can make a big task clearer. This demonstration uses three actions: name the result, break the work into steps, and choose the next action."
+    },
+    {
+      "id": "block_result",
+      "text": "First, name the result. Describe what finished looks like, instead of listing activities."
+    },
+    {
+      "id": "block_steps",
+      "text": "Next, break the work into small steps. Put them in an order you can follow."
+    },
+    {
+      "id": "block_action",
+      "text": "Then choose the next action. Make it specific enough to begin without another planning session."
+    },
+    {
+      "id": "block_recap",
+      "text": "Name the result, break it down, and choose your next action."
+    }
+  ]
+}

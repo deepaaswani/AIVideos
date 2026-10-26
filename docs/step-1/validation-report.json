@@ -1,0 +1,30 @@
+{
+  "checkedAtUtc": "2026-10-26T19:09:26.678578+00:00",
+  "scope": "Planning schema and authored fixtures only; no rendering, AI, device or billing verification",
+  "schemaValid": true,
+  "fixtureValid": true,
+  "sceneCount": 5,
+  "templates": [
+    "process",
+    "recap",
+    "title"
+  ],
+  "estimatedDurationSeconds": 30.0,
+  "narrationWordCount": 66,
+  "rejectedMalformedCases": [
+    "unknown_template",
+    "extra_executable_field",
+    "wrong_output_dimensions",
+    "missing_narration",
+    "unknown_source_block",
+    "unknown_source_version",
+    "duplicate_scene_id",
+    "duration_sum_out_of_range",
+    "invalid_highlight",
+    "unexplained_review_flag",
+    "missing_source_references",
+    "blank_narration"
+  ],
+  "negativeCaseCount": 12,
+  "runtimeValidation": "not_run"
+}

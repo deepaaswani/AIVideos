@@ -1,0 +1,44 @@
+# Dependencies and build output
+node_modules/
+.next/
+out/
+dist/
+build/
+coverage/
+*.tsbuildinfo
+next-env.d.ts
+.turbo/
+.expo/
+
+# Local configuration and credentials
+.env*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+.aws/
+.codex/
+.agents/
+.vercel/
+
+# Logs and local tools
+*.log
+.npm-cache/
+.cache/
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Generated media and benchmark artifacts
+artifacts/
+renders/
+prototype-results/
+tmp/

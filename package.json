@@ -1,0 +1,38 @@
+{
+  "name": "aivideos",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=22.14.0",
+    "npm": ">=10"
+  },
+  "scripts": {
+    "dev": "npm run dev --workspace @aivideos/web",
+    "build": "npm run build --workspace @aivideos/web",
+    "start": "npm run start --workspace @aivideos/web",
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "contracts:generate": "node scripts/generate-contracts.mjs",
+    "contracts:check": "node scripts/generate-contracts.mjs --check",
+    "validate:planning": "python docs/step-1/validate_contracts.py",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run contracts:check"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "eslint": "^9.39.0",
+    "eslint-config-next": "16.4.3",
+    "json-schema-to-typescript": "16.0.0",
+    "prettier": "3.9.10",
+    "tsx": "4.23.15",
+    "typescript": "~5.9.3"
+  }
+}
