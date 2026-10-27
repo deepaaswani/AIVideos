@@ -41,4 +41,6 @@ __pycache__/
 artifacts/
 renders/
 prototype-results/
+apps/web/public/prototype/
+packages/video/public/prototype/narration/
 tmp/

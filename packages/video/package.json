@@ -1,0 +1,19 @@
+{
+  "name": "@aivideos/video",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./data": "./src/data.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test src/*.test.ts"
+  },
+  "dependencies": {
+    "@aivideos/contracts": "*",
+    "react": "19.3.1",
+    "remotion": "4.0.539"
+  }
+}

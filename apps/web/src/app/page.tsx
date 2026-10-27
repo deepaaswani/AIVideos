@@ -1,58 +1,27 @@
-import { validateStoryboard } from '@aivideos/contracts';
-import fixture from '../../../../docs/step-1/fixtures/storyboard.fixture.json';
+import type { Metadata } from 'next';
+import localFont from 'next/font/local';
+import Homepage from '@/components/home/homepage';
+import { loadPrototypeNarration } from '@/lib/prototype-narration';
 
-export default function Home() {
-  const result = validateStoryboard(fixture);
-  if (!result.success) {
-    throw new Error('The checked-in storyboard fixture is invalid.');
-  }
+const inter = localFont({
+  src: [
+    { path: './fonts/inter-latin-400-normal.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/inter-latin-500-normal.woff2', weight: '500', style: 'normal' },
+    { path: './fonts/inter-latin-600-normal.woff2', weight: '600', style: 'normal' },
+    { path: './fonts/inter-latin-700-normal.woff2', weight: '700', style: 'normal' },
+    { path: './fonts/inter-latin-800-normal.woff2', weight: '800', style: 'normal' },
+  ],
+  variable: '--font-home',
+  display: 'swap',
+});
 
-  return (
-    <main>
-      <header>
-        <span className="mark" aria-hidden="true">
-          V
-        </span>
-        <span>Video Studio</span>
-        <span className="badge">Development</span>
-      </header>
-      <section className="intro" aria-labelledby="title">
-        <p className="eyebrow">AIVideos / project foundation</p>
-        <h1 id="title">From source to storyboard.</h1>
-        <p className="lede">
-          The project foundation is ready. The next milestone is a controlled video render from the
-          approved storyboard fixture.
-        </p>
-      </section>
-      <section className="panel" aria-labelledby="fixture-title">
-        <div className="panel-heading">
-          <p className="eyebrow">Validated planning fixture</p>
-          <span className="status">Contract valid</span>
-        </div>
-        <h2 id="fixture-title">{result.data.title}</h2>
-        <dl>
-          <div>
-            <dt>Scenes</dt>
-            <dd>{result.data.scenes.length}</dd>
-          </div>
-          <div>
-            <dt>Planned duration</dt>
-            <dd>{result.data.targetDurationSeconds} seconds</dd>
-          </div>
-          <div>
-            <dt>Format</dt>
-            <dd>Vertical · 9:16</dd>
-          </div>
-        </dl>
-        <p className="note">
-          This is authored sample data. Video rendering, narration, accounts, and generation are
-          still to be implemented.
-        </p>
-      </section>
-      <footer>
-        <span>Next.js web · Shared TypeScript contracts</span>
-        <a href="/api/v1/health">API health</a>
-      </footer>
-    </main>
-  );
+export const metadata: Metadata = {
+  title: 'Video Studio | From brief to brilliant video',
+  description:
+    'A thoughtful studio for educational videos. Explore storyboards, natural narration and motion that makes ideas clear.',
+};
+
+export default async function Home() {
+  const result = await loadPrototypeNarration();
+  return <Homepage className={inter.variable} narration={result.narration} />;
 }

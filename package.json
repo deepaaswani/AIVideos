@@ -2,6 +2,7 @@
   "name": "aivideos",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "workspaces": [
     "apps/*",
     "packages/*"
@@ -10,21 +11,38 @@
     "node": ">=22.14.0",
     "npm": ">=10"
   },
+  "overrides": {
+    "zod": "4.6.7"
+  },
   "scripts": {
+    "predev": "node scripts/sync-video-assets.mjs",
     "dev": "npm run dev --workspace @aivideos/web",
+    "prebuild": "node scripts/sync-video-assets.mjs",
     "build": "npm run build --workspace @aivideos/web",
     "start": "npm run start --workspace @aivideos/web",
     "lint": "eslint . --max-warnings=0",
-    "typecheck": "npm run typecheck --workspaces --if-present",
-    "test": "npm run test --workspaces --if-present",
+    "typecheck": "tsc -p tsconfig.scripts.json && npm run typecheck --workspaces --if-present",
+    "test": "tsx --test scripts/*.test.ts && npm run test --workspaces --if-present",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "contracts:generate": "node scripts/generate-contracts.mjs",
     "contracts:check": "node scripts/generate-contracts.mjs --check",
     "validate:planning": "python docs/step-1/validate_contracts.py",
-    "check": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run contracts:check"
+    "validate:planning:uber": "python docs/step-1/validate_contracts.py --fixture uber",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run contracts:check",
+    "prototype:render": "tsx scripts/prototype-render.ts",
+    "prototype:inspect": "tsx scripts/prototype-inspect.ts",
+    "prototype:check-web": "tsx scripts/prototype-web-check.ts",
+    "prototype:check-web:uber": "tsx scripts/prototype-web-check.ts --uber",
+    "narration:generate": "tsx scripts/narration-generate.ts",
+    "prototype:render:narrated": "tsx scripts/prototype-render.ts --narrated",
+    "prototype:inspect:narrated": "tsx scripts/prototype-inspect.ts --narrated",
+    "prototype:check-web:narrated": "tsx scripts/narrated-web-check.ts"
   },
   "devDependencies": {
+    "@fontsource/inter": "5.3.0",
+    "@remotion/bundler": "4.0.539",
+    "@remotion/renderer": "4.0.539",
     "@types/node": "^22.19.0",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
@@ -32,7 +50,12 @@
     "eslint-config-next": "16.4.3",
     "json-schema-to-typescript": "16.0.0",
     "prettier": "3.9.10",
+    "sharp": "0.35.5",
     "tsx": "4.23.15",
     "typescript": "~5.9.3"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.118.0"
   }
 }

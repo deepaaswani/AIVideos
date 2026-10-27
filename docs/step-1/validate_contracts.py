@@ -66,11 +66,14 @@ def validate_semantics(board: dict[str, Any], source: dict[str, Any]) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--report", action="store_true", help="Save validation-report.json")
+    parser.add_argument("--fixture", choices=("planning", "uber"), default="planning",
+                        help="Select an independent authored test fixture (default: planning)")
     args = parser.parse_args()
 
     schema = read_json("contracts/storyboard.schema.json")
-    source = read_json("fixtures/source.fixture.json")
-    board = read_json("fixtures/storyboard.fixture.json")
+    fixture_path = "fixtures/uber" if args.fixture == "uber" else "fixtures"
+    source = read_json(f"{fixture_path}/source.fixture.json")
+    board = read_json(f"{fixture_path}/storyboard.fixture.json")
     Draft202012Validator.check_schema(schema)
     validator = Draft202012Validator(schema)
 
@@ -110,6 +113,7 @@ def main() -> None:
         "scope": "Planning schema and authored fixtures only; no rendering, AI, device or billing verification",
         "schemaValid": True,
         "fixtureValid": True,
+        "fixture": args.fixture,
         "sceneCount": len(board["scenes"]),
         "templates": sorted({scene["template"] for scene in board["scenes"]}),
         "estimatedDurationSeconds": sum(scene["estimatedDurationMs"] for scene in board["scenes"]) / 1000,
@@ -119,7 +123,8 @@ def main() -> None:
         "runtimeValidation": "not_run",
     }
     if args.report:
-        (ROOT / "validation-report.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+        report_path = ROOT / "fixtures/uber/validation-report.json" if args.fixture == "uber" else ROOT / "validation-report.json"
+        report_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(report, indent=2))
 
 

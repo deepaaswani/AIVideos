@@ -1,0 +1,42 @@
+{
+  "sourceVersionId": "source_uber_system_design_v1",
+  "title": "Uber-style ride-hailing system design",
+  "provenance": "Original educational summary informed by public Uber Engineering posts. Simplified for a 30-second authored test, not a verified diagram of Uber's current production system. The spatial index and app-to-backend boundary are teaching abstractions; no specific current database, transport, or dispatch algorithm is claimed.",
+  "language": "en",
+  "blocks": [
+    {
+      "id": "block_request",
+      "text": "In this simplified ride-hailing design, the rider app sends pickup and destination to backend services. Uber's fulfillment platform describes capturing consumer intent and matching it with providers, then managing the trip lifecycle. The app-to-backend boundary here is an educational abstraction.",
+      "sourceUrls": ["https://www.uber.com/us/en/blog/fulfillment-platform-rearchitecture/"]
+    },
+    {
+      "id": "block_location",
+      "text": "Drivers send location updates. This educational design uses a spatial index to discover nearby candidates. Uber documents location updates in fulfillment and geographic grids for marketplace analysis and dispatch; those posts do not establish that this particular lookup is Uber's current live implementation, or that H3 is its exact nearby-driver index.",
+      "sourceUrls": [
+        "https://www.uber.com/us/en/blog/building-ubers-fulfillment-platform/",
+        "https://www.uber.com/us/en/blog/h3/"
+      ]
+    },
+    {
+      "id": "block_match",
+      "text": "Dispatch considers arrival estimates and driver availability, makes an offer, and records acceptance. Uber's DeepETA article describes using arrival predictions in rider-driver matching; its fulfillment articles describe offers and the state changes needed when drivers accept. This is a simplified sequence, not a reproduction of the complete matching algorithm.",
+      "sourceUrls": [
+        "https://www.uber.com/us/en/blog/deepeta-how-uber-predicts-arrival-times/",
+        "https://www.uber.com/us/en/blog/fulfillment-platform-rearchitecture/"
+      ]
+    },
+    {
+      "id": "block_trip",
+      "text": "A trip state machine models pickup, travel, and completion, while events notify downstream services. Uber documents fulfillment lifecycles, statecharts, APIs, and emitted events. The three states shown in this test summarize a much richer lifecycle.",
+      "sourceUrls": ["https://www.uber.com/us/en/blog/fulfillment-platform-rearchitecture/"]
+    },
+    {
+      "id": "block_reliability",
+      "text": "Idempotent payment operations prevent repeated requests from creating duplicate charges. Consistent storage protects trip state across coordinated updates. Uber's published payments design emphasizes idempotency and strong consistency, and its fulfillment storage article describes transactional consistency and scale. These are scoped design principles, not a promise that all failures disappear.",
+      "sourceUrls": [
+        "https://www.uber.com/mx/en/blog/payments-platform/",
+        "https://www.uber.com/us/en/blog/building-ubers-fulfillment-platform/"
+      ]
+    }
+  ]
+}

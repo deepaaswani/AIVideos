@@ -1,0 +1,16 @@
+{
+  "name": "@aivideos/database",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/database.test.mjs",
+    "verify": "node scripts/verify-migrations.mjs"
+  },
+  "engines": {
+    "node": ">=22.14.0"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.12"
+  }
+}

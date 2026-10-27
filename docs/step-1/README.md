@@ -1,7 +1,7 @@
 # Step 1 — Pipeline technical design and prototype plan
 
 Date: October 27, 2026.  
-Status: Implementation blueprint completed; prototype execution has not started.  
+Status: Blueprint and P0 implementation available; measured execution/visual evidence is tracked in [P0 verification](p0-verification.md). P1 and later increments have not run.  
 Working label: Video Studio. Final product name/domain remain undecided.
 
 ## Read in this order
@@ -9,7 +9,7 @@ Working label: Video Studio. Final product name/domain remain undecided.
 1. [Pipeline technical design](pipeline-technical-design.md): boundaries, data, APIs, jobs, revisions, costs and recovery.
 2. [Prototype plan](prototype-plan.md): a bounded 30-second production test and its acceptance gates.
 3. [Desktop/mobile screen flows](screen-flows.md): individual onboarding, creation, editing and recovery.
-4. [Storyboard contract](contracts/storyboard.schema.json) and [example](fixtures/storyboard.fixture.json): concrete structured inputs for the planned renderer.
+4. [Storyboard contract](contracts/storyboard.schema.json) and [example](fixtures/storyboard.fixture.json): structured inputs reused by the P0 renderer.
 5. [Authored source packet](fixtures/source.fixture.json): the example's traceable source material.
 
 The [approved V1 PRD](../PRD.md) defines product requirements. The [cross-platform plan](../cross-platform-implementation-plan.md) defines the recommended website/Android/iOS approach. This package turns those decisions into an implementation sequence; it does not replace their scope or move publishing/automation out of V1's existing R3/R4 stages.
@@ -31,7 +31,7 @@ The [approved V1 PRD](../PRD.md) defines product requirements. The [cross-platfo
 
 ## What this package does not claim
 
-The sample storyboard is a planned fixture, not proof that AI, audio or rendering has run. The schema/fixture validation checks data consistency; it is not a rendering, security, cost or mobile-device benchmark. No provider keys were configured or paid generations performed to produce this design package.
+The sample storyboard is authored fixture data, not generated AI output or measured narration timing. The schema/fixture validation checks data consistency; rendering evidence is recorded separately in [P0 verification](p0-verification.md). P0 is intentionally silent and does not verify narration, captions, security isolation, device behavior, or production costs. No paid generations or provider keys are needed for P0.
 
 ## Recheck the contract artifacts
 
@@ -43,8 +43,12 @@ python docs/step-1/validate_contracts.py
 
 The validator checks the schema, example, source references, timing estimates and blocked malformed cases. It makes no network or model calls.
 
-The [recorded validation result](validation-report.json) confirms the five-scene fixture passes and all 12 malformed cases are rejected. Runtime validation remains pending. Run with `--report` to refresh this record.
+The [recorded validation result](validation-report.json) confirms the five-scene fixture passes and all 12 malformed cases are rejected. That report covers planning contracts only. Run with `--report` to refresh it; use P0's separate render/inspection reports for media evidence.
 
-## Immediate next implementation task
+## P0 implementation and next increment
 
-Build prototype P0: render the supplied fixture with three controlled templates, using a deliberate fixture-audio mode. Then P1 replaces fixtures with measured Kokoro narration and caption timing. Add live script generation only after the deterministic production path is inspectable. See [prototype milestones](prototype-plan.md#3-implementation-sequence).
+`packages/video` supplies Title, Process, and Recap templates, a tested frame timeline, and the five-scene composition. The responsive `/prototype` route previews that same composition. From the repository root, `npm run prototype:render` exports a silent 1080×1920, 30 fps MP4, preview images, and machine-readable evidence to ignored `prototype-results/p0/`. Repeated runs overwrite that directory's artifact paths. `npm run prototype:inspect` checks current input hashes, metadata, and complete decoding; visual review is separate.
+
+`npm run prototype:render -- --images-only` supports layout iteration without rendering or validating video. It records an images-only status, not a successful MP4 run. See the [root setup instructions](../../README.md#render-p0) and [actual verification record](p0-verification.md).
+
+P1 adds measured Kokoro narration and caption timing. Add live script generation only after the deterministic production path is inspectable. See [prototype milestones](prototype-plan.md#3-implementation-sequence).

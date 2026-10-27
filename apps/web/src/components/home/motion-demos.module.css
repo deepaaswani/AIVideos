@@ -1,0 +1,697 @@
+.demoShell {
+  width: 100%;
+  max-width: 366px;
+  aspect-ratio: 0.645;
+  display: flex;
+  flex-direction: column;
+  padding: 13px 12px 9px;
+  color: #214b65;
+  background: linear-gradient(135deg, #f5e9df, #e9d8ca);
+  border: 1px solid #fbf1e9;
+  border-radius: 26px;
+  box-shadow:
+    inset 0 2px 3px #ffffffd9,
+    inset 0 -3px 5px #b79e8733,
+    0 24px 44px #0d304738,
+    0 5px 8px #0d304724;
+  font-family: inherit;
+  isolation: isolate;
+}
+
+.screen {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 17px 13px 21px;
+  border: 1px solid #f4eee7;
+  border-radius: 17px;
+  background: #fffaf4;
+  box-shadow:
+    inset 0 1px 6px #c6b9a532,
+    0 2px 4px #ffffff8a;
+}
+
+.screenTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.screenTop > span {
+  padding: 5px 8px;
+  border-radius: 7px;
+  background: #efe4da;
+  color: #5c5c54;
+}
+
+.screenTop .sceneChip {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #46616f;
+  background: #efece7;
+}
+
+.sceneChip i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #5e919f;
+}
+
+.demoTitle {
+  margin-top: 17px;
+  text-align: center;
+}
+
+.demoTitle h3 {
+  margin: 0 0 9px;
+  font-size: clamp(17px, 1.9vw, 21px);
+  line-height: 1.28;
+  letter-spacing: -0.045em;
+  color: #214b65;
+  font-weight: 750;
+}
+
+.target {
+  display: inline-flex;
+  padding: 6px 13px;
+  border-radius: 100px;
+  color: #fff8ef;
+  background: #285571;
+  box-shadow:
+    inset 0 1px 1px #ffffff2a,
+    0 3px 5px #153d5a2e;
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.searchLesson {
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 26px 0 20px;
+}
+
+.numberLine {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  position: relative;
+  width: 100%;
+}
+
+.number {
+  display: grid;
+  place-items: center;
+  flex: 0 1 32px;
+  min-width: 0;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #fffcf6, #e8e4dc);
+  color: #637c87;
+  font-size: 15px;
+  font-weight: 750;
+  box-shadow:
+    inset 0 2px 3px #ffffffd6,
+    0 3px 5px #7d7e7624;
+  transition:
+    opacity 0.4s,
+    transform 0.4s,
+    background 0.4s,
+    color 0.4s;
+}
+
+.number[data-muted='true'] {
+  opacity: 0.23;
+  transform: scale(0.91);
+}
+
+.number[data-middle='true'],
+.number[data-found='true'] {
+  color: #fffaf4;
+  background: linear-gradient(145deg, #3e7190, #214b67);
+  box-shadow:
+    inset 0 1px 2px #ffffff40,
+    0 5px 8px #2855713d;
+  transform: translateY(-3px) scale(1.05);
+}
+
+.number[data-found='true'] {
+  outline: 3px solid #a7bfb660;
+  outline-offset: 4px;
+}
+
+.searchBracket {
+  height: 21px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 12px 12px;
+  border-top: 1px solid #acb8b8;
+  transition:
+    margin 0.5s,
+    opacity 0.5s;
+  opacity: 0.55;
+}
+
+.searchBracket span {
+  width: 1px;
+  height: 7px;
+  background: #acb8b8;
+}
+
+.searchBracket[data-scene='2'],
+.searchBracket[data-scene='3'] {
+  margin-left: 61%;
+}
+
+.searchCaption {
+  margin-top: 23px;
+  padding: 12px 8px;
+  border-radius: 18px;
+  background: #f1ece6;
+  color: #5e625e;
+  text-align: center;
+  font-size: 11px;
+  line-height: 1.55;
+  min-height: 59px;
+}
+
+.searchCaption strong,
+.searchCaption span {
+  display: block;
+}
+
+.searchCaption strong {
+  font-weight: 650;
+  color: #43555d;
+}
+
+.signal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 35px;
+  opacity: 0.82;
+}
+
+.signal i {
+  display: block;
+  width: 3px;
+  border-radius: 4px;
+  background: #3c718a;
+  transform-origin: center;
+}
+
+.signal[data-active='true'] i {
+  animation: wave 0.8s ease-in-out infinite alternate;
+}
+
+.playerControls {
+  padding: 0 2px;
+}
+
+.playerControls input {
+  display: block;
+  width: 100%;
+  height: 25px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  appearance: none;
+  background: transparent;
+  accent-color: #285571;
+}
+
+.playerControls input::-webkit-slider-runnable-track {
+  height: 5px;
+  background: linear-gradient(to right, #285571 var(--progress), #ded1c7 var(--progress));
+  border-radius: 8px;
+  box-shadow:
+    inset 0 1px 2px #917c6429,
+    0 1px 0 #fff7ed;
+}
+
+.playerControls input::-webkit-slider-thumb {
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  margin-top: -2.5px;
+  border-radius: 50%;
+  background: #285571;
+  box-shadow: 0 1px 2px #1c425347;
+}
+
+.playerControls input::-moz-range-track {
+  height: 5px;
+  background: #dcd0c5;
+  border-radius: 8px;
+}
+.playerControls input::-moz-range-progress {
+  height: 5px;
+  background: #285571;
+  border-radius: 8px;
+}
+.playerControls input::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border: 0;
+  border-radius: 50%;
+  background: #285571;
+}
+
+.controlRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.transport {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.playButton,
+.resetButton {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  color: #285571;
+  background: linear-gradient(145deg, #fffaf2, #e7dcd0);
+  box-shadow:
+    inset 0 2px 2px #ffffffb0,
+    0 3px 5px #9f8a7433;
+  cursor: pointer;
+}
+
+.playButton svg,
+.resetButton svg {
+  width: 17px;
+  height: 17px;
+}
+.resetButton {
+  width: 30px;
+  height: 30px;
+}
+.resetButton svg {
+  width: 15px;
+  height: 15px;
+}
+.playButton:hover,
+.resetButton:hover {
+  background: #fffaf2;
+}
+.time {
+  color: #536775;
+  font-size: 9px;
+  font-weight: 600;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.silentLabel {
+  margin-left: auto;
+  color: #6b746f;
+  font-size: 8px;
+  letter-spacing: 0.01em;
+}
+
+.thumbnail {
+  width: 100%;
+  aspect-ratio: 1.66;
+  border-radius: 25px;
+  position: relative;
+  overflow: hidden;
+  background: #f1ece5;
+  color: #285571;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.binaryThumbnail {
+  padding: 24px;
+}
+.binaryThumbnail .numberLine {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.binaryThumbnail .number {
+  flex-basis: 30px;
+  font-size: 13px;
+}
+.thumbnailTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  font-size: 9px;
+  font-weight: 650;
+}
+.thumbnailCaption {
+  margin-top: 7px;
+  text-align: center;
+  font-size: 9px;
+  color: #7a7a70;
+}
+.workspaceArt {
+  width: 100%;
+  height: 100%;
+  max-height: 190px;
+}
+.ramThumbnail {
+  background: linear-gradient(145deg, #e9eff0, #e8e0e4);
+  padding: 4px 4px 20px;
+}
+.artBadge {
+  position: absolute;
+  bottom: 11px;
+  left: 12px;
+  right: 12px;
+  text-align: center;
+  font-size: 9px;
+  font-weight: 550;
+  color: #5e706f;
+}
+.waterThumbnail {
+  background: linear-gradient(145deg, #e7eee8, #eee5d8);
+  padding: 0 5px 20px;
+}
+.waterArt {
+  width: 100%;
+  height: auto;
+  max-height: 240px;
+  display: block;
+}
+.waterThumbnail .waterArt {
+  height: 100%;
+}
+.evaporation,
+.rain {
+  opacity: 0.4;
+  transition: opacity 0.5s;
+}
+.evaporation[data-selected='true'],
+.rain[data-selected='true'] {
+  opacity: 1;
+}
+.cloud {
+  opacity: 0.85;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition:
+    opacity 0.5s,
+    transform 0.5s;
+}
+.cloud[data-selected='true'] {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+.scienceDemo {
+  width: 100%;
+  padding: clamp(20px, 4vw, 34px);
+  color: #214b65;
+  background: #fffaf4;
+  border: 1px solid #eee1d5;
+  border-radius: 24px;
+  box-shadow:
+    inset 0 2px 4px #fff,
+    0 10px 24px #31546a0d;
+  font-family: inherit;
+}
+
+.demoEyebrow {
+  display: block;
+  margin-bottom: 11px;
+  font-size: 9px;
+  line-height: 1.5;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6f8587;
+}
+.scienceDemo h3 {
+  margin: 0 0 24px;
+  max-width: 410px;
+  font-size: clamp(22px, 3vw, 30px);
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  color: #214b65;
+}
+.memoryComparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.memoryPanel {
+  min-width: 0;
+  padding: 17px 13px;
+  border-radius: 18px;
+  background: #f0ece6;
+  border: 1px solid #e7dfd5;
+}
+.memoryHeading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.memoryHeading > span {
+  display: grid;
+  place-items: center;
+  width: 23px;
+  height: 23px;
+  background: #fffaf3;
+  border-radius: 7px;
+  font-size: 9px;
+  font-weight: 650;
+}
+.memoryHeading strong {
+  font-size: 15px;
+}
+.memoryHeading small {
+  display: block;
+  width: 100%;
+  color: #79817a;
+  font-size: 10px;
+}
+.workingDesk,
+.storageShelf {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 7px;
+  height: 132px;
+  margin: 13px 0;
+}
+.workingDesk > span,
+.storageShelf > span {
+  display: block;
+  padding: 10px 8px;
+  text-align: center;
+  font-size: 10px;
+  border-radius: 8px;
+  background: #d6e2e4;
+  color: #315b71;
+  box-shadow:
+    inset 0 1px 1px #ffffffa6,
+    0 2px 3px #3453630e;
+}
+.storageShelf > span {
+  background: #e2d3c2;
+  color: #655b50;
+}
+.workingDesk > .emptyDesk {
+  border: 1px dashed #b5c1c0;
+  background: transparent;
+  box-shadow: none;
+  padding: 27px 8px;
+  color: #7c8c88;
+}
+.memoryPanel > small {
+  display: block;
+  text-align: center;
+  font-size: 9px;
+  color: #7e8177;
+  line-height: 1.5;
+}
+.explanation {
+  min-height: 65px;
+  margin: 23px 0 20px;
+  color: #65777b;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.actionRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 11px;
+}
+.actionRow button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 43px;
+  padding: 10px 17px;
+  border: 1px solid #285571;
+  border-radius: 100px;
+  background: #285571;
+  color: #fffaf4;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+  box-shadow: 0 4px 9px #25495c1f;
+}
+.actionRow button svg {
+  width: 15px;
+  height: 15px;
+}
+.actionRow .secondaryAction {
+  background: #eee4da;
+  color: #285571;
+  border-color: #e4d8cd;
+}
+.motionNote {
+  color: #7d8580;
+  font-size: 10px;
+}
+.fullWaterArt {
+  margin: -20px auto -3px;
+  max-width: 410px;
+}
+.fullWaterArt .waterArt {
+  max-height: 255px;
+}
+.waterStages {
+  display: flex;
+  gap: 7px;
+}
+.waterStages button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 45px;
+  min-width: 0;
+  padding: 9px 6px;
+  border: 1px solid #e4ded5;
+  border-radius: 12px;
+  color: #60747b;
+  background: #f0ece5;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.waterStages button span {
+  color: #93a09c;
+  font-size: 9px;
+}
+.waterStages button[aria-pressed='true'] {
+  color: #fffaf2;
+  background: #285571;
+  border-color: #285571;
+  box-shadow: 0 4px 8px #28557125;
+}
+.waterStages button[aria-pressed='true'] span {
+  color: #c7d7df;
+}
+.demoShell button:focus-visible,
+.demoShell input:focus-visible,
+.scienceDemo button:focus-visible {
+  outline: 3px solid #89a7af;
+  outline-offset: 4px;
+}
+
+@keyframes wave {
+  from {
+    transform: scaleY(0.45);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@media (max-width: 420px) {
+  .demoShell {
+    max-width: 330px;
+    padding: 11px 10px 8px;
+    border-radius: 22px;
+  }
+  .screen {
+    padding: 14px 11px 17px;
+    border-radius: 14px;
+  }
+  .numberLine {
+    gap: 6px;
+  }
+  .number {
+    font-size: 13px;
+  }
+  .demoTitle h3 {
+    font-size: 18px;
+  }
+  .searchCaption {
+    font-size: 10px;
+    padding: 10px 6px;
+  }
+  .screenTop {
+    font-size: 8px;
+  }
+  .screenTop > span {
+    padding: 5px 6px;
+  }
+  .silentLabel {
+    max-width: 45px;
+    text-align: right;
+    font-size: 7px;
+    line-height: 1.3;
+  }
+  .binaryThumbnail {
+    padding: 20px;
+  }
+  .memoryComparison {
+    gap: 9px;
+  }
+  .memoryPanel {
+    padding: 13px 9px;
+  }
+  .waterStages {
+    gap: 5px;
+  }
+  .waterStages button {
+    flex-direction: column;
+    gap: 3px;
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .number,
+  .searchBracket,
+  .evaporation,
+  .rain,
+  .cloud {
+    transition: none;
+  }
+  .signal[data-active='true'] i {
+    animation: none;
+  }
+}

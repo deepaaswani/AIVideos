@@ -1,0 +1,86 @@
+{
+  "project": "AI Video Studio Hero",
+  "projectResource": "projects/6895840924523486062",
+  "screens": [
+    {
+      "title": "Creation Workspace - Storyboard (Desktop)",
+      "filename": "creation-workspace-storyboard-desktop-9946d691.png",
+      "sourceScreen": "projects/6895840924523486062/screens/9946d691888a49478d728e7a24b5b168",
+      "sourceScreenshot": "projects/6895840924523486062/screens/9946d691888a49478d728e7a24b5b168/fileEntries/screenshot",
+      "mimeType": "image/png",
+      "verification": "{\n  filename: 'creation-workspace-storyboard-desktop-9946d691.png',\n  bytes: 815287,\n  sha256: '79b075c843e615de2c587a16faa82ba9fb905f1b316ff0dd4c6ca6522f598489'\n}"
+    },
+    {
+      "title": "Video Studio - Responsive Homepage (Desktop)",
+      "filename": "video-studio-responsive-homepage-desktop-46fb9d6b.jpg",
+      "sourceScreen": "projects/6895840924523486062/screens/46fb9d6b02124f70b7cebf6c59fc7613",
+      "sourceScreenshot": "projects/6895840924523486062/files/3925593484243840952",
+      "mimeType": "image/jpeg",
+      "verification": "{\n  filename: 'video-studio-responsive-homepage-desktop-46fb9d6b.jpg',\n  bytes: 418298,\n  sha256: '448690fa6a1509fef01758cd1c07f125631a5165e3406caaaea367839f2c5de6'\n}"
+    },
+    {
+      "title": "Video Studio - Responsive Homepage (Mobile)",
+      "filename": "video-studio-responsive-homepage-mobile-b7c45aad.png",
+      "sourceScreen": "projects/6895840924523486062/screens/b7c45aad37d148b183146fb3a3cdc5bf",
+      "sourceScreenshot": "projects/6895840924523486062/screens/b7c45aad37d148b183146fb3a3cdc5bf/fileEntries/screenshot",
+      "mimeType": "image/png",
+      "verification": "{\n  filename: 'video-studio-responsive-homepage-mobile-b7c45aad.png',\n  bytes: 1813803,\n  sha256: 'c6306c213df2ddb232ddd328c39cc6aef01b650bab944460e23a96086d86dd9a'\n}"
+    },
+    {
+      "title": "Creation Workspace - Idea & Script (Desktop)",
+      "filename": "creation-workspace-idea-script-desktop-b9f84319.png",
+      "sourceScreen": "projects/6895840924523486062/screens/b9f84319f38a4159a1534bcc09947a38",
+      "sourceScreenshot": "projects/6895840924523486062/screens/b9f84319f38a4159a1534bcc09947a38/fileEntries/screenshot",
+      "mimeType": "image/png",
+      "verification": "{\n  filename: 'creation-workspace-idea-script-desktop-b9f84319.png',\n  bytes: 850360,\n  sha256: 'cd7b715062f79a7506d0847e151bad563fe6b1b5cb8584e2717883e430ffb03d'\n}"
+    },
+    {
+      "title": "Creation Workspace - Final Video (Desktop)",
+      "filename": "creation-workspace-final-video-desktop-3dbf01ae.png",
+      "sourceScreen": "projects/6895840924523486062/screens/3dbf01aef94041278b7bf6d6131cf4a2",
+      "sourceScreenshot": "projects/6895840924523486062/screens/3dbf01aef94041278b7bf6d6131cf4a2/fileEntries/screenshot",
+      "mimeType": "image/png",
+      "verification": "{\n  filename: 'creation-workspace-final-video-desktop-3dbf01ae.png',\n  bytes: 740369,\n  sha256: '170c2cf68c21db63135184d69ed74ec4b13bc7e18070fae590f8089e4a786c86'\n}"
+    },
+    {
+      "title": "Video Studio - Binary Search Clay Explainer Hero",
+      "filename": "video-studio-binary-search-clay-explainer-hero-beb37385.png",
+      "sourceScreen": "projects/6895840924523486062/screens/beb3738551434a008143a331c73e09ec",
+      "sourceScreenshot": "projects/6895840924523486062/screens/beb3738551434a008143a331c73e09ec/fileEntries/screenshot",
+      "mimeType": "image/png",
+      "verification": "{\n  filename: 'video-studio-binary-search-clay-explainer-hero-beb37385.png',\n  bytes: 370996,\n  sha256: 'cc05e31a137b7a77f1d1abf6392924084afbaa03b9835dcaa067d46d3394a812'\n}"
+    },
+    {
+      "title": "Video Studio Hero Section",
+      "filename": "video-studio-hero-section-0f32d412.png",
+      "sourceScreen": "projects/6895840924523486062/screens/0f32d4125f4a4e4a80ff64b3c1e9e034",
+      "sourceScreenshot": "projects/6895840924523486062/screens/0f32d4125f4a4e4a80ff64b3c1e9e034/fileEntries/screenshot",
+      "mimeType": "image/png",
+      "verification": "{\n  filename: 'video-studio-hero-section-0f32d412.png',\n  bytes: 269999,\n  sha256: '9ea32c9a90dc7be723e28744b73ee0d3d292a3695be590959fbdced6cc31da03'\n}"
+    },
+    {
+      "title": "Video Studio - Clay UI Hero",
+      "filename": "video-studio-clay-ui-hero-2de6c4c9.png",
+      "sourceScreen": "projects/6895840924523486062/screens/2de6c4c9f4644da08ca9cd6a16e2faa7",
+      "sourceScreenshot": "projects/6895840924523486062/screens/2de6c4c9f4644da08ca9cd6a16e2faa7/fileEntries/screenshot",
+      "mimeType": "image/png",
+      "verification": "{\n  filename: 'video-studio-clay-ui-hero-2de6c4c9.png',\n  bytes: 362652,\n  sha256: 'cb5ec0ba8fbe11735665c3776dea7776d24e398694722686f7ed0e2e8f6ebd2a'\n}"
+    },
+    {
+      "title": "Video Studio - Finished Example Hero",
+      "filename": "video-studio-finished-example-hero-684aa16e.png",
+      "sourceScreen": "projects/6895840924523486062/screens/684aa16e2f0740358537a6485d2638f9",
+      "sourceScreenshot": "projects/6895840924523486062/screens/684aa16e2f0740358537a6485d2638f9/fileEntries/screenshot",
+      "mimeType": "image/png",
+      "verification": "{\n  filename: 'video-studio-finished-example-hero-684aa16e.png',\n  bytes: 404251,\n  sha256: 'd6256747d9665b38693c540939b594429367c799d6665f097868e1d3b0a758b2'\n}"
+    },
+    {
+      "title": "Video Studio - Sapphire Clay UI Hero",
+      "filename": "video-studio-sapphire-clay-ui-hero-e3c4aca9.png",
+      "sourceScreen": "projects/6895840924523486062/screens/e3c4aca9ec1f4fa1a417147f2073285a",
+      "sourceScreenshot": "projects/6895840924523486062/screens/e3c4aca9ec1f4fa1a417147f2073285a/fileEntries/screenshot",
+      "mimeType": "image/png",
+      "verification": "{\n  filename: 'video-studio-sapphire-clay-ui-hero-e3c4aca9.png',\n  bytes: 401975,\n  sha256: '84a58da0f77f937c5f696098baaeda17d5138eb980856fa6ed3d785b3aad0722'\n}"
+    }
+  ]
+}

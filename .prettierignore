@@ -8,3 +8,6 @@ docs/
 artifacts/
 renders/
 prototype-results/
+apps/web/public/prototype/
+packages/video/public/prototype/narration/
+packages/video/public/prototype/fonts/OFL.txt

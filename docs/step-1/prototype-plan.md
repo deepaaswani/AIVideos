@@ -1,7 +1,7 @@
 # Prototype plan — one complete 30-second explainer
 
 Date: October 27, 2026.  
-Status: Planned; no video, live-provider benchmark or device test has run yet.  
+Status: P0 implemented; execution and visual-review evidence is tracked in [P0 verification](p0-verification.md). P1 narration/captions, live-provider benchmarks, and device tests remain pending.  
 Parent: [V1 PRD](../PRD.md). Design: [Pipeline technical design](pipeline-technical-design.md).
 
 ## 1. Questions the prototype must answer
@@ -47,6 +47,14 @@ Draft scene timings and a word-count estimate do not prove the video fits. Narra
 | P5: Android/iPhone integration | Small Expo development client for personal login, job status, media import, preview and save/share | Physical-device report or clearly labelled pending platform checks | No provider calls caused by simply opening the client |
 
 P0 can use an intentionally silent visual-test composition or owned prerecorded test audio. It must be labelled accordingly and cannot pass P1 or final prototype acceptance. No real narration fixture is included in this planning package.
+
+### P0 implementation
+
+The repository now reuses the shared contracts and authored source/storyboard fixtures in `packages/video`: reusable Title, Process, and Recap templates, cumulative frame timeline calculations with tests, and one Remotion composition shared by the responsive `/prototype` Player and CLI.
+
+Run `npm run prototype:render` from the root to export into ignored `prototype-results/p0/`. Repeated runs overwrite the same artifact paths. The P0 output is an intentionally silent H.264 MP4 with no audio track: 1080×1920, 30 fps, 900 frames / 30 seconds from estimated fixture timings. Scene stills, a thumbnail, fixture/stress/decoded contact sheets, encoding metadata, hashes, and timing/runtime reports accompany the MP4. No SRT or narration is produced in P0.
+
+`npm run prototype:inspect` validates actual source-block references, tracked input hashes, completed export status, media metadata, and full MP4 decoding. It fails on stale inputs or incomplete exports. `npm run prototype:render -- --images-only` exports layout evidence without video verification and records an images-only runtime status. These commands do not themselves establish human visual acceptance; consult [P0 verification](p0-verification.md) for checks actually completed. Setup, browser selection, concurrency, and local font details are in the [root README](../../README.md#render-p0).
 
 Do not wait until the full web studio is built to exercise P5 connectivity/media assumptions. A thin native client can run once P3's deployed endpoints exist; the complete native editor remains a later implementation milestone.
 
@@ -111,7 +119,7 @@ Ten runs are a diagnostic sample, not evidence of a long-term 95% success SLA or
 | Deployed integration | Test account isolation and cross-platform access | Supabase project, private media store, API/worker deployments, redirect/deep-link setup |
 | Native development | Test import/playback/save/resume | Expo development build, device access and signing setup as applicable |
 
-Pin runtime/library/model versions when implementation starts; the current repository contains documents, not installed app dependencies. Keep `.env` files out of version control and separate development from production data. Default to fixture mode and synthetic/authored material.
+P0's application and rendering dependencies are pinned in the repository lockfile; model/inference versions remain future P1/P2 work. Templates use bundled local Inter font assets with their OFL license. Keep `.env` files out of version control and separate development from production data. Default to fixture mode and synthetic/authored material.
 
 Proposed initial online-provider ceiling: US$5 total for an explicitly enabled test batch, configurable downward. This is a future test guardrail, not a charge incurred by this document. An estimate exceeding the remaining cap blocks dispatch. Local/cloud machine cost is recorded separately. Stop and report if credentials, provider suitability or hardware prevents a live gate; do not label fixtures as a live pass.
 
@@ -144,4 +152,4 @@ The complete prototype passes G01–G13 or records a specific unresolved gate be
 
 After technical/experience acceptance, expand to the remaining V1 templates, durations and creation screens, then conduct paid-use validation. This prototype does not justify pricing or profitability by itself.
 
-The immediate next implementation is P0, followed by P1. A final domain, final name, real customer billing and agency features are not prerequisites for those local production tests.
+P0 implementation is available, with measured evidence recorded separately. P1 is the next production increment after P0 review. A final domain, final name, real customer billing and agency features are not prerequisites for those local production tests.

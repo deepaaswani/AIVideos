@@ -1,0 +1,447 @@
+.page {
+  width: min(100% - 64px, 1120px);
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 28px 0;
+  border-bottom: 1px solid #d8dfd7;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #202b29;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.mark {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #275547;
+  color: #fff;
+}
+
+.stage {
+  padding: 7px 11px;
+  border: 1px solid #d8dfd7;
+  border-radius: 100px;
+  color: #52665a;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.heading {
+  max-width: 760px;
+  margin: 44px 0 32px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #52665a;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.heading h1 {
+  max-width: none;
+  margin: 0 0 18px;
+  font-size: clamp(32px, 4.6vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+}
+
+.heading > p:not(.eyebrow) {
+  max-width: 620px;
+  margin: 0;
+  color: #617066;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.modeNavigation {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.modeNavigation a {
+  padding: 9px 14px;
+  border: 1px solid #d8dfd7;
+  border-radius: 9px;
+  color: #275547;
+  background: #fff;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.modeNavigation a[aria-current='page'] {
+  border-color: #76967d;
+  background: #eef3e9;
+  font-weight: 700;
+}
+
+.narrationError {
+  padding: 24px;
+  border: 1px solid #cdb3a7;
+  border-radius: 12px;
+  color: #57372d;
+  background: #f7ede6;
+  line-height: 1.6;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1.1fr);
+  overflow: hidden;
+  border: 1px solid #d8dfd7;
+  border-radius: 22px;
+  background: #fff;
+}
+
+.previewPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  padding: 24px 32px;
+  background: #e9ede6;
+  border-right: 1px solid #d8dfd7;
+}
+
+.previewLabel {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 18px;
+  color: #52665a;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+.silentDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #6b796c;
+}
+
+.playerFrame {
+  width: min(100%, 320px);
+  overflow: hidden;
+  border: 1px solid #cbd4ca;
+  border-radius: 12px;
+  background: #f8fafc;
+  box-shadow: 0 16px 32px #253d2e14;
+}
+
+.playerHint {
+  margin: 18px 0 0;
+  color: #617066;
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.details {
+  min-width: 0;
+  padding: 36px;
+}
+
+.details h2 {
+  margin: 0 0 24px;
+  font-size: 26px;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+.metadata {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 32px;
+  padding: 0 0 24px;
+  border-bottom: 1px solid #e7ebe5;
+}
+
+.metadata dt {
+  color: #6a786d;
+  font-size: 11px;
+}
+
+.metadata dd {
+  margin: 8px 0 0;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.sceneHeading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 12px;
+}
+
+.sceneHeading h3 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.sceneHeading > span {
+  color: #6a786d;
+  font-size: 12px;
+}
+
+.scenes {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.scenes button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 72px;
+  padding: 12px;
+  border: 1px solid #e0e5dd;
+  border-radius: 10px;
+  color: #26362b;
+  background: #fff;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.scenes button:hover {
+  background: #f4f6f0;
+}
+
+.scenes button.activeScene {
+  border-color: #76967d;
+  background: #eef3e9;
+}
+
+.scenes button:focus-visible {
+  outline: 2px solid #275547;
+  outline-offset: 3px;
+}
+
+.sceneNumber {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: #617066;
+  background: #f0f3eb;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.sceneText {
+  display: grid;
+  min-width: 0;
+  gap: 5px;
+}
+
+.sceneText strong {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.sceneText > span {
+  color: #738070;
+  font-size: 11px;
+  text-transform: capitalize;
+}
+
+.seekIcon {
+  margin-left: auto;
+  color: #76967d;
+}
+
+.sourceNote {
+  margin: 20px 0 0;
+  color: #6a786d;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.export {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin: 24px 0 18px;
+  padding: 26px 28px;
+  border: 1px solid #d8dfd7;
+  border-radius: 16px;
+  background: #eef1e9;
+}
+
+.export > div {
+  max-width: 620px;
+}
+
+.export h2 {
+  margin: 0 0 10px;
+  font-size: 19px;
+}
+
+.export p:last-child {
+  margin: 0;
+  color: #617066;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.export code {
+  padding: 13px 16px;
+  border: 1px solid #d4ddcf;
+  border-radius: 8px;
+  color: #275547;
+  background: #fff;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.boundary {
+  max-width: 830px;
+  margin: 0;
+  color: #6a786d;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.loading {
+  display: grid;
+  min-height: 600px;
+  place-items: center;
+  padding: 32px;
+  border: 1px solid #d8dfd7;
+  border-radius: 22px;
+  color: #617066;
+  background: #e9ede6;
+  font-size: 14px;
+}
+
+.playerError {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  padding: 24px;
+  color: #57372d;
+  background: #f7ede6;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+@media (max-width: 850px) {
+  .page {
+    width: min(100% - 40px, 650px);
+  }
+
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .previewPanel {
+    padding: 24px;
+    border-right: 0;
+    border-bottom: 1px solid #d8dfd7;
+  }
+
+  .playerFrame {
+    width: min(100%, 290px);
+  }
+
+  .details {
+    padding: 28px;
+  }
+
+  .export {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px;
+  }
+}
+
+@media (max-width: 420px) {
+  .page {
+    width: min(100% - 28px, 650px);
+  }
+
+  .navigation {
+    gap: 12px;
+    padding: 22px 0;
+  }
+
+  .brand {
+    gap: 8px;
+    font-size: 14px;
+  }
+
+  .mark {
+    width: 30px;
+    height: 30px;
+  }
+
+  .stage {
+    font-size: 10px;
+  }
+
+  .heading {
+    margin: 32px 0 24px;
+  }
+
+  .heading h1 {
+    font-size: 34px;
+  }
+
+  .previewPanel,
+  .details {
+    padding: 20px;
+  }
+
+  .details h2 {
+    font-size: 24px;
+  }
+
+  .scenes button {
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .metadata {
+    gap: 8px;
+  }
+
+  .metadata dd {
+    font-size: 12px;
+  }
+}

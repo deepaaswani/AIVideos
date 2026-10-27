@@ -17,5 +17,9 @@ export default defineConfig([
     '**/dist/**',
     '**/next-env.d.ts',
     '**/*.generated.ts',
+    'prototype-results/**',
+    'renders/**',
+    'artifacts/**',
+    'apps/web/public/prototype/**',
   ]),
 ]);

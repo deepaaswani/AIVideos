@@ -4,7 +4,7 @@ Date: October 26, 2026.
 Status: Platform targets requested; architecture and build sequence recommended for implementation.  
 Product baseline: [V1 PRD](PRD.md). Agency expansion: [V2 addendum](PRD-V2-agency.md).
 
-Step 1 deliverable: [pipeline technical design, prototype plan and screen flows](step-1/README.md), prepared October 27, 2026. The blueprint and sample data contract are complete; rendering, live generation and device validation remain prototype execution tasks.
+Step 1 deliverable: [pipeline technical design, prototype plan and screen flows](step-1/README.md), prepared October 27, 2026. The blueprint and sample data contract are complete. P0's controlled silent renderer is implemented; its measured evidence is recorded in [P0 verification](step-1/p0-verification.md). Narration, live generation, durable workflow and device validation remain prototype execution tasks.
 
 ## 1. Recommended architecture
 

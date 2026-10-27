@@ -1,0 +1,83 @@
+{
+  "contractVersion": "0.1.0",
+  "projectId": "project_uber_system_design_test",
+  "title": "Uber-style ride-hailing system design",
+  "language": "en",
+  "targetDurationSeconds": 30,
+  "output": {
+    "format": "vertical_1080p",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "displayName": "Uber-style system design",
+    "primaryColor": "#2563EB",
+    "backgroundColor": "#F8FAFC",
+    "textColor": "#111827",
+    "fontKey": "sans-default"
+  },
+  "sourceVersionIds": ["source_uber_system_design_v1"],
+  "scenes": [
+    {
+      "id": "uber_request",
+      "template": "title",
+      "narration": "An Uber-style ride begins when an app sends pickup and destination to backend services.",
+      "onScreenTitle": "How does an Uber-style system work?",
+      "visualItems": [],
+      "highlightIndex": null,
+      "estimatedDurationMs": 5000,
+      "sourceRefs": [{ "sourceVersionId": "source_uber_system_design_v1", "blockId": "block_request" }],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "id": "uber_location",
+      "template": "process",
+      "narration": "Driver location updates feed a spatial index to find nearby candidates.",
+      "onScreenTitle": "1. Find nearby drivers",
+      "visualItems": ["Live locations", "Driver matching", "Trip lifecycle"],
+      "highlightIndex": 0,
+      "estimatedDurationMs": 5000,
+      "sourceRefs": [{ "sourceVersionId": "source_uber_system_design_v1", "blockId": "block_location" }],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "id": "uber_match",
+      "template": "process",
+      "narration": "Dispatch compares arrival estimates and availability, proposes a match, then records driver acceptance.",
+      "onScreenTitle": "2. Match rider and driver",
+      "visualItems": ["Live locations", "Driver matching", "Trip lifecycle"],
+      "highlightIndex": 1,
+      "estimatedDurationMs": 6000,
+      "sourceRefs": [{ "sourceVersionId": "source_uber_system_design_v1", "blockId": "block_match" }],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "id": "uber_trip",
+      "template": "process",
+      "narration": "A trip state machine tracks pickup, travel, and completion, publishing events to other services.",
+      "onScreenTitle": "3. Track the trip lifecycle",
+      "visualItems": ["Live locations", "Driver matching", "Trip lifecycle"],
+      "highlightIndex": 2,
+      "estimatedDurationMs": 7000,
+      "sourceRefs": [{ "sourceVersionId": "source_uber_system_design_v1", "blockId": "block_trip" }],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "id": "uber_reliability",
+      "template": "recap",
+      "narration": "Payments use idempotency to prevent duplicate charges; consistent storage keeps trip state reliable.",
+      "onScreenTitle": "Keep trips and payments reliable",
+      "visualItems": ["Geographic matching", "Consistent trip state", "Idempotent payments"],
+      "highlightIndex": null,
+      "estimatedDurationMs": 7000,
+      "sourceRefs": [{ "sourceVersionId": "source_uber_system_design_v1", "blockId": "block_reliability" }],
+      "needsReview": false,
+      "reviewNotes": []
+    }
+  ]
+}
